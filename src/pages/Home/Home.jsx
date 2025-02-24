@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import "./Home.css";
 
-import { Tasks as initialTasks } from "../../data/Tasks/Tasks";
+import { Tasks as initialTasks } from "../../data/Tasks";
 
-export const TaskList = () => {
+export const Home = () => {
   const [tasks, setTasks] = useState(initialTasks);
   console.log(initialTasks);
 
