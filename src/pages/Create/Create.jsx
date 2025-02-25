@@ -3,25 +3,25 @@ import "./Create.css";
 import { Tasks } from "../../data/Tasks";
 
 export const Create = () => {
+  const [tasks, setTasks] = useState("");
   const [newtask, setnewtask] = useState("");
 
-  const handleChange = (event) => {
+  const handleCreate = (event) => {
     setnewtask(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const exist = Tasks.find((t) => t.text.toLowerCase() === newtask.toLowerCase());
-    if (exist) {
-      alert("La tarea ya existe");
-    }
-   else {
-      Tasks.push({
-        id: Tasks.length + 1,
+    const existe = tasks.find((task) => task.text === newtask);
+    if (!existe) {
+      const newTask = {
+        id: tasks.length + 1,
         text: newtask,
-        status: false,
-      });
-      alert("Tarea creada");
+        status: "pendiente",
+      };
+      setTasks([...tasks, newTask]);
+    } else {
+      alert("La tarea ya existe");
     }
   };
 
@@ -33,7 +33,7 @@ export const Create = () => {
           placeholder="Digite la nueva tarea"
           type="text"
           value={newtask}
-          onChange={handleChange}
+          onChange={handleCreate}
         />
         <button className="btn-submit" type="submit">
           Crear Tarea
