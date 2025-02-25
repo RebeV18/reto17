@@ -23,19 +23,28 @@ export const Home = () => {
   };
 
   return (
-    <>
-      <div className="container">
+    <div className="home-container">
+      <div className="tasks_container">
         {tasks.map((t) => (
-          <div key={t.id}>
+          <div className="task-container" key={t.id}>
             <p>{t.text}</p>
-            <button onClick={() => handleCompleteTask(t.id)}>
+            <button className="btnO" onClick={() => handleCompleteTask(t.id)}>
               {t.status ? "Pendiente" : "Completada"}
             </button>
-            <button onClick={() => handleDelete(t.id)}>Eliminar</button>
+            <button className="btnO" onClick={() => handleDelete(t.id)}>
+              Eliminar
+            </button>
           </div>
         ))}
       </div>
-      <Link to={'/create'}>Crear tarea</Link>
-    </>
+      <div className="btn-container">
+        <Link className="btn-nav" to={"/create"}>
+          Crear tarea
+        </Link>
+        <Link className="btn-nav" to={"/"}>
+          Inicio
+        </Link>
+      </div>
+    </div>
   );
 };

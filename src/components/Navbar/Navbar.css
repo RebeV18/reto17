@@ -1,0 +1,13 @@
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--second-color);
+}
+
+.nav-container h1 {
+    background-color: var(--second-color);
+    color: var(--four-color);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
