@@ -1,25 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Create.css";
-import { Tasks } from "../../data/Tasks";
 
 export const Create = () => {
-  const [tasks, setTasks] = useState("");
-  const [newtask, setnewtask] = useState("");
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(data);
+  }, []);
 
   const handleCreate = (event) => {
-    setnewtask(event.target.value);
+    setNewTask(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const existe = tasks.find((task) => task.text === newtask);
+    const existe = tasks.find((task) => task.text === newTask);
     if (!existe) {
-      const newTask = {
+      const newTaskObj = {
         id: tasks.length + 1,
-        text: newtask,
+        text: newTask,
         status: "pendiente",
       };
-      setTasks([...tasks, newTask]);
+      const updatedTasks = [...tasks, newTaskObj];
+      setTasks(updatedTasks);
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+      setNewTask("");
+      alert("Tarea creada");
     } else {
       alert("La tarea ya existe");
     }
@@ -32,7 +40,7 @@ export const Create = () => {
         <input
           placeholder="Digite la nueva tarea"
           type="text"
-          value={newtask}
+          value={newTask}
           onChange={handleCreate}
         />
         <button className="btn-submit" type="submit">

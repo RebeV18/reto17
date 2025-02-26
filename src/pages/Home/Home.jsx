@@ -1,43 +1,50 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import "./Home.css";
 
-import { Tasks as initialTasks } from "../../data/Tasks";
-
 export const Home = () => {
-  const [tasks, setTasks] = useState(initialTasks);
-  console.log(initialTasks);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(storedTasks);
+  }, []);
 
   const handleCompleteTask = (id) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, status: !task.status } : task
-      )
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, status: !task.status } : task
     );
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
   const handleDelete = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     console.log("Eliminando tarea");
   };
 
   return (
     <div className="home-container">
       <div className="tasks_container">
-        {tasks.map((t) => (
-          <div className="task-container" key={t.id}>
-            <p>{t.text}</p>
-            <div className="btnO-container">
-              <button className="btnO" onClick={() => handleCompleteTask(t.id)}>
-                {t.status ? "Pendiente" : "Completada"}
-              </button>
-              <button className="btnO" onClick={() => handleDelete(t.id)}>
-                Eliminar
-              </button>
+        {tasks.length > 0 ? (
+          tasks.map((t) => (
+            <div className="task-container" key={t.id}>
+              <p>{t.text}</p>
+              <div className="btnO-container">
+                <button className="btnO" onClick={() => handleCompleteTask(t.id)}>
+                  {t.status ? "Pendiente" : "Completada"}
+                </button>
+                <button className="btnO" onClick={() => handleDelete(t.id)}>
+                  Eliminar
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No hay tareas disponibles</p>
+        )}
       </div>
       <div className="btn-container">
         <Link className="btn-nav" to={"/create"}>
