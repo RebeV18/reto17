@@ -4,15 +4,15 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-  
-    background-color: var(--primary-color);
-  
-    padding: 5rem;
+
+    background-color: var(--second-color);
   }
   
   header h1 {
     font-size: clamp(1.2rem, 5vw, 4rem);
     color: var(--secondary-color);
+
+    background-color: var(--second-color);
   
     transition: 0.3s;
   }

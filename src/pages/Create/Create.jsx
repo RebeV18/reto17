@@ -36,7 +36,7 @@ export const Create = () => {
   return (
     <div className="container-create">
       <h1>Crear Nueva Tarea</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="form-cont" onSubmit={handleSubmit}>
         <input
           placeholder="Digite la nueva tarea"
           type="text"

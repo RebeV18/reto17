@@ -1,0 +1,46 @@
+.container-create {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 3px solid var(--third-color);
+  border-radius: 10px;
+  width: 50%;
+
+  gap: 1rem;
+  margin: 5rem;
+  padding: 4rem;
+}
+
+.container-create h1 {
+  color: var(--third-color);
+  padding-bottom: 3rem;
+}
+
+.form-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.container-create input {
+  padding: 0.5rem;
+  border: 2px solid var(--third-color);
+  border-radius: 10px;
+  width: 38rem;
+}
+
+.btn-submit {
+  color: var(--four-color);
+  text-decoration: none;
+  text-align: center;
+
+  border: 2px solid var(--third-color);
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem var(--third-color);
+  width: 20%;
+}
