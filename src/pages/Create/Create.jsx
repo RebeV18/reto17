@@ -6,8 +6,13 @@ export const Create = () => {
   const [newTask, setNewTask] = useState("");
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("tasks")) || [];
-    setTasks(data);
+    try {
+      const data = JSON.parse(localStorage.getItem("tasks")) || [];
+      setTasks(data);
+    } catch (error) {
+      console.error("Error parsing tasks from localStorage", error);
+      setTasks([]);
+    }
   }, []);
 
   const handleCreate = (event) => {
@@ -26,7 +31,7 @@ export const Create = () => {
       const updatedTasks = [...tasks, newTaskObj];
       setTasks(updatedTasks);
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-      setNewTask("");
+      setNewTask(""); // Limpiar el campo de entrada
       alert("Tarea creada");
     } else {
       alert("La tarea ya existe");
@@ -34,8 +39,8 @@ export const Create = () => {
   };
 
   return (
-    <div>
-      <div className="container-create">
+    <div className="card-container">
+      <div className="card">
         <h1>Crear Nueva Tarea</h1>
         <form className="form-cont" onSubmit={handleSubmit}>
           <input

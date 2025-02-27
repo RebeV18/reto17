@@ -6,8 +6,13 @@ export const Home = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setTasks(storedTasks);
+    try {
+      const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      setTasks(storedTasks);
+    } catch (error) {
+      console.error("Error parsing tasks from localStorage", error);
+      setTasks([]);
+    }
   }, []);
 
   const handleCompleteTask = (id) => {
