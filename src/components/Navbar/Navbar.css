@@ -3,7 +3,6 @@
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   padding: 1.5rem;
-  background-color: var(--second-color);
 }
 
 .nav-container header {
@@ -14,7 +13,6 @@
 .btn-nav {
   text-decoration: none;
   color: var(third-color);
-  background-color: var(--second-color);
   font-size: 3rem;
 
   grid-column-start: 4;
@@ -26,11 +24,11 @@
 
 .icon {
   color: var(third-color);
-  background-color: var(--second-color);
+  text-decoration: none;
 }
 
 .icon:hover {
-  color: var(primary-color);
+  color: var(second-color);
   text-shadow: 0 0 25px #fff;
   transform: scale(1.05);
 }

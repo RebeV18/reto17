@@ -27,34 +27,32 @@ export const Home = () => {
 
   return (
     <>
-      <div className="home-container">
-        <div className="tasks_container">
-          {tasks.length > 0 ? (
-            tasks.map((t) => (
-              <div className="task-container" key={t.id}>
-                <p>{t.text}</p>
-                <div className="btnO-container">
-                  <button
-                    className="btnO"
-                    onClick={() => handleCompleteTask(t.id)}
-                  >
-                    {t.status ? "Pendiente" : "Completada"}
-                  </button>
-                  <button className="btnO" onClick={() => handleDelete(t.id)}>
-                    Eliminar
-                  </button>
-                </div>
+      <div className="tasks_container">
+        {tasks.length > 0 ? (
+          tasks.map((t) => (
+            <div className="task-container" key={t.id}>
+              <p>{t.text}</p>
+              <div className="btnO-container">
+                <button
+                  className="btnO"
+                  onClick={() => handleCompleteTask(t.id)}
+                >
+                  {t.status ? "Pendiente" : "Completada"}
+                </button>
+                <button className="btnO" onClick={() => handleDelete(t.id)}>
+                  Eliminar
+                </button>
               </div>
-            ))
-          ) : (
-            <p>No hay tareas disponibles</p>
-          )}
-        </div>
-        <div className="btn-container">
-          <Link className="btn-create" to={"/create"}>
-            Crear tarea
-          </Link>
-        </div>
+            </div>
+          ))
+        ) : (
+          <p>No hay tareas disponibles</p>
+        )}
+      </div>
+      <div className="btn-container">
+        <Link className="btn-create" to={"/create"}>
+          Crear tarea
+        </Link>
       </div>
     </>
   );
