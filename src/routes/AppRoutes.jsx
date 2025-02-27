@@ -3,7 +3,6 @@ import { Home } from "../pages/Home/Home";
 import { Create } from "../pages/Create/Create";
 import { Navbar } from "../components/Navbar/Navbar";
 
-
 export const AppRoutes = () => {
   return (
     <>
