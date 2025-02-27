@@ -34,19 +34,21 @@ export const Create = () => {
   };
 
   return (
-    <div className="container-create">
-      <h1>Crear Nueva Tarea</h1>
-      <form className="form-cont" onSubmit={handleSubmit}>
-        <input
-          placeholder="Digite la nueva tarea"
-          type="text"
-          value={newTask}
-          onChange={handleCreate}
-        />
-        <button className="btn-submit" type="submit">
-          Crear Tarea
-        </button>
-      </form>
+    <div>
+      <div className="container-create">
+        <h1>Crear Nueva Tarea</h1>
+        <form className="form-cont" onSubmit={handleSubmit}>
+          <input
+            placeholder="Digite la nueva tarea"
+            type="text"
+            value={newTask}
+            onChange={handleCreate}
+          />
+          <button className="btn-submit" type="submit">
+            Crear Tarea
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
