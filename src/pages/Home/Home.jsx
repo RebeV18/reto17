@@ -32,10 +32,10 @@ export const Home = () => {
 
   return (
     <>
-      <div className="tasks_container">
+      <div className="tasks-container">
         {tasks.length > 0 ? (
           tasks.map((t) => (
-            <div className="task-container" key={t.id}>
+            <div className="tasks-info" key={t.id}>
               <p>{t.text}</p>
               <div className="btnO-container">
                 <button

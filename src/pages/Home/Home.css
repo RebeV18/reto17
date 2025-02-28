@@ -1,4 +1,4 @@
-.tasks_container {
+.tasks-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
   text-align: center;
 }
 
-.task-container {
+.tasks-info {
   background-color: var(--fifth-color);
   border: 3px solid var(--third-color);
   border-radius: 10px;
@@ -40,7 +40,7 @@
   text-align: center;
 }
 
-.task-container p {
+.tasks-info p {
   padding: 2rem;
   font-size: 1.2rem;
   background-color: var(--second-color);
