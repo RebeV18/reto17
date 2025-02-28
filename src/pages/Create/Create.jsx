@@ -24,7 +24,7 @@ export const Create = () => {
     const existe = tasks.find(t => t.text === newTask);
     if (!existe) {
       const newTaskObj = {
-        id: tasks.length + 1,
+        id: tasks[tasks.length-1].id + 1,
         text: newTask,
         status: "pendiente",
       };
