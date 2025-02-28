@@ -42,7 +42,7 @@ export const Home = () => {
                   className="btnO"
                   onClick={() => handleCompleteTask(t.id)}
                 >
-                  {t.status ? "Pendiente" : "Completada"}
+                  {t.status ? "Completada" : "Pendiente"}
                 </button>
                 <button className="btnO" onClick={() => handleDelete(t.id)}>
                   Eliminar
