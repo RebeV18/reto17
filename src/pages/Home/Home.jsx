@@ -17,7 +17,7 @@ export const Home = () => {
 
   const handleCompleteTask = (id) => {
     const updatedTasks = tasks.map((task) =>
-      task.id === id ? { ...task, status: !task.status } : task
+      task.id === id ? { ...task, status: task.status === "pendiente" ? "completada" : "pendiente" } : task
     );
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
@@ -27,7 +27,7 @@ export const Home = () => {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-    console.log("Eliminando tarea");
+    alert("Tarea eliminada o no existe");
   };
 
   return (
@@ -42,7 +42,7 @@ export const Home = () => {
                   className="btnO"
                   onClick={() => handleCompleteTask(t.id)}
                 >
-                  {t.status ? "Completada" : "Pendiente"}
+                  {t.status === "pendiente" ? "Pendiente" : "Completada"}
                 </button>
                 <button className="btnO" onClick={() => handleDelete(t.id)}>
                   Eliminar

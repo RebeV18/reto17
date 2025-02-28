@@ -21,7 +21,7 @@ export const Create = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const existe = tasks.find((task) => task.text === newTask);
+    const existe = tasks.find(t => t.text === newTask);
     if (!existe) {
       const newTaskObj = {
         id: tasks.length + 1,
