@@ -2,11 +2,11 @@
   {
     "id": 1,
     "text": "Comprar pan",
-    "state": "Pendiente"
+    "status": false
   },
   {
     "id": 2,
     "text": "Comprar café",
-    "state": "Pendiente"
+    "status": false
   }
 ]
