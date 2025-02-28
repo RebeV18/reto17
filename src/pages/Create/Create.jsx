@@ -31,7 +31,7 @@ export const Create = () => {
       const updatedTasks = [...tasks, newTaskObj];
       setTasks(updatedTasks);
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-      setNewTask(""); // Limpiar el campo de entrada
+      setNewTask("");
       alert("Tarea creada");
     } else {
       alert("La tarea ya existe");

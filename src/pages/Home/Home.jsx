@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import tasksData from "../../data/TasksBase.json";
 
 export const Home = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
+    if (!localStorage.getItem("tasks")) {
+      localStorage.setItem("tasks", JSON.stringify(tasksData));
+    }
+
     try {
       const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
       setTasks(storedTasks);
